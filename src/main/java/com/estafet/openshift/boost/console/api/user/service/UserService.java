@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.estafet.openshift.boost.console.api.user.model.User;
 import com.estafet.openshift.boost.console.api.user.openshift.OpenShiftClient;
@@ -17,7 +16,6 @@ public class UserService {
 	@Autowired
 	private OpenShiftClient client;
 
-	@Transactional(readOnly = true)
 	public List<User> getUsers() {
 		List<User> users = new ArrayList<User>();;
 		List<IUser> iusers = client.getUsers();
