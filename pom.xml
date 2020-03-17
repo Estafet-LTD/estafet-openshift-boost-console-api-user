@@ -14,8 +14,8 @@
 	</parent>
 
 	<properties>
-		<microservice>console-build-api</microservice>
-		<entity.package>com.estafet.openshift.boost.console.api.build.model</entity.package>
+		<microservice>console-user-api</microservice>
+		<entity.package>com.estafet.openshift.boost.console.api.user.model</entity.package>
 	</properties>
 
 	<dependencies>
