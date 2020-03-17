@@ -9,7 +9,7 @@
 
 	<parent>
 		<groupId>com.estafet.openshift.boost</groupId>
-		<artifactId>estafet-openshift-boost-springboot-db</artifactId>
+		<artifactId>estafet-openshift-boost-springboot</artifactId>
 		<version>1.0.5</version>
 	</parent>
 
