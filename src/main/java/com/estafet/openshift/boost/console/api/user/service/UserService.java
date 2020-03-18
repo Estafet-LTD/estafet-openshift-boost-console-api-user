@@ -22,7 +22,7 @@ public class UserService {
 		for (IUser iuser : iusers) {
 		    System.out.println(iuser); 
 		    User user = new User();
-		    user.setName(iuser.getFullName());
+		    user.setName(iuser.getName());
 			users.add(user);
 		}		
 		return users;
