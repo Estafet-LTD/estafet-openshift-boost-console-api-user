@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.openshift.restclient.ClientBuilder;
 import com.openshift.restclient.IClient;
 import com.openshift.restclient.ResourceKind;
+import com.openshift.restclient.model.IResource;
 import com.openshift.restclient.model.user.IUser;
 
 import io.opentracing.Span;
@@ -34,11 +35,23 @@ public final class OpenShiftClient {
 				.build();
 	}
 
+//	@SuppressWarnings("unchecked")
+//	public List<IUser> getUsers() {
+//		Span span = tracer.buildSpan("OpenShiftClient.getUsers").start();
+//		try {
+//			return (List<IUser>) getClient().get(ResourceKind.USER, product + "-cicd");
+//		} catch (RuntimeException e) {
+//			throw handleException(span, e);
+//		} finally {
+//			span.finish();
+//		}
+//	}
+	
 	@SuppressWarnings("unchecked")
 	public List<IUser> getUsers() {
 		Span span = tracer.buildSpan("OpenShiftClient.getUsers").start();
-		try {
-			return (List<IUser>) getClient().get(ResourceKind.USER, product + "-cicd");
+		try {		 
+			return (List<IUser>)(List<?>) (List<IResource>) getClient().list(ResourceKind.USER);
 		} catch (RuntimeException e) {
 			throw handleException(span, e);
 		} finally {
