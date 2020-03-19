@@ -19,7 +19,6 @@ public class UserService {
 		List<User> users = new ArrayList<User>();;
 		List<IUser> iusers = client.getUsers();
 		for (IUser iuser : iusers) {
-		    System.out.println(iuser); 
 		    User user = new User();
 		    user.setName(iuser.getName());
 			users.add(user);
