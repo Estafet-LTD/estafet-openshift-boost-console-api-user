@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.estafet.openshift.boost.commons.lib.model.API;
-import com.estafet.openshift.boost.messages.users.User;
+import com.estafet.openshift.boost.console.api.user.model.User;
 import com.estafet.openshift.boost.console.api.user.service.UserService;
 
 @RestController
@@ -28,6 +29,16 @@ public class UserController {
 	@GetMapping("/users")
 	public List<User> getUsers() {
 		return userService.getUsers();
+	}
+
+	@GetMapping("/user/name/{name}")
+	public User getUserByName(@PathVariable String name) {
+		return userService.getUserByName(name);
+	}
+	
+	@GetMapping("/user/uid/{uid}")
+	public User getUserByUid(@PathVariable String uid) {
+		return userService.getUserByUid(uid);
 	}
 
 

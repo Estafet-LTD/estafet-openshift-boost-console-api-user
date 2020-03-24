@@ -5,9 +5,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.estafet.openshift.boost.console.api.user.model.User;
 import com.estafet.openshift.boost.console.api.user.openshift.OpenShiftClient;
 import com.openshift.restclient.model.user.IUser;
-import com.estafet.openshift.boost.messages.users.User;
 
 @Service
 public class UserService {
@@ -21,8 +22,38 @@ public class UserService {
 		for (IUser iuser : iusers) {
 		    User user = new User();
 		    user.setName(iuser.getName());
+		    user.setName(iuser.getUID());
 			users.add(user);
 		}		
 		return users;
+	}
+	
+	
+	public User getUserByName(String name) {
+		List<IUser> iusers = client.getUsers();
+		for (IUser iuser : iusers) {
+		    if (name.equals(iuser.getName())) {
+				User user = new User();
+		    	user.setName(iuser.getName());
+		    	user.setUid(iuser.getUID());
+		    	return user;
+		    }
+		}
+		return null;		
+		
+	}
+	
+	public User getUserByUid(String uid) {
+		List<IUser> iusers = client.getUsers();
+		for (IUser iuser : iusers) {
+		    if (uid.equals(iuser.getUID())) {
+				User user = new User();
+		    	user.setName(iuser.getName());
+		    	user.setUid(iuser.getUID());
+		    	return user;
+		    }
+		}
+		return null;		
+		
 	}
 }

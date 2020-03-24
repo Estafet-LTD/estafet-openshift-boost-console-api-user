@@ -58,6 +58,7 @@ public final class OpenShiftClient {
 			span.finish();
 		}
 	}
+	
 
 	private RuntimeException handleException(Span span, RuntimeException e) {
 		Tags.ERROR.set(span, true);
