@@ -22,7 +22,7 @@ public class UserService {
 		for (IUser iuser : iusers) {
 		    User user = new User();
 		    user.setName(iuser.getName());
-		    user.setName(iuser.getUID());
+		    user.setUid(iuser.getUID());
 			users.add(user);
 		}		
 		return users;
