@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.estafet.openshift.boost.commons.lib.model.API;
@@ -31,8 +32,8 @@ public class UserController {
 		return userService.getUsers();
 	}
 
-	@GetMapping("/user/name/{name}")
-	public User getUserByName(@PathVariable String name) {
+	@GetMapping("/user/name")
+	public User getUserByName(@RequestBody String name) {
 		return userService.getUserByName(name);
 	}
 	
