@@ -33,8 +33,8 @@ public class UserController {
 	}
 
 	@GetMapping("/user/name")
-	public User getUserByName(@RequestBody User user) {
-		return userService.getUserByName(user.getName());
+	public User getUserByName(@PathVariable String name) {
+		return userService.getUserByName(name);
 	}
 	
 	@GetMapping("/user/uid/{uid}")
