@@ -30,12 +30,15 @@ public class UserService {
 	
 	
 	public User getUserByName(String name) {
+		System.out.println("Username: " + name);
 		List<IUser> iusers = client.getUsers();
 		for (IUser iuser : iusers) {
 		    if (name.equals(iuser.getName())) {
+		    	System.out.println("Got Iuser: " + iuser);
 				User user = new User();
 		    	user.setName(iuser.getName());
 		    	user.setUid(iuser.getUID());
+		    	System.out.println("Got user: " + user);
 		    	return user;
 		    }
 		}
