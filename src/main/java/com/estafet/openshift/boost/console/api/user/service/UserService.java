@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.estafet.openshift.boost.console.api.user.model.User;
 import com.estafet.openshift.boost.console.api.user.openshift.OpenShiftClient;
+import com.estafet.openshift.boost.messages.users.User;
 import com.openshift.restclient.model.user.IUser;
 
 @Service

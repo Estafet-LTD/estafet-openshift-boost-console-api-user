@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.estafet.openshift.boost.commons.lib.model.API;
-import com.estafet.openshift.boost.console.api.user.model.User;
 import com.estafet.openshift.boost.console.api.user.service.UserService;
+import com.estafet.openshift.boost.messages.users.User;
 
 @RestController
 public class UserController {
