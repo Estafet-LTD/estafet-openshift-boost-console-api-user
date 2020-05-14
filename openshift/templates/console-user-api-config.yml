@@ -117,8 +117,7 @@ objects:
                 valueFrom:
                   configMapKeyRef:
                     name: ${MICROSERVICE} 
-                    key: JAEGER_AGENT_HOST
-                value: jaeger-agent.${NAMESPACE}.svc                                          
+                    key: JAEGER_AGENT_HOST                                          
             image: ${DOCKER_REGISTRY}/${DOCKER_NAMESPACE}/${MICROSERVICE}:${DOCKER_IMAGE_LABEL}
             imagePullPolicy: Always
             name: ${MICROSERVICE}
