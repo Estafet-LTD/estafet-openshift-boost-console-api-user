@@ -1,11 +1,8 @@
 package com.estafet.openshift.boost.console.api.user;
 
-import javax.jms.ConnectionFactory;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
@@ -13,8 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
-
-import io.opentracing.Tracer;
 
 @Configuration
 @ComponentScan
@@ -29,7 +24,7 @@ public class Application extends SpringBootServletInitializer {
 	
 	@Bean
 	public io.opentracing.Tracer jaegerTracer() {
-		return new com.uber.jaeger.Configuration("console-user-api",
+		return new com.uber.jaeger.Configuration(System.getenv("JAEGER_SERVICE_NAME"),
 				com.uber.jaeger.Configuration.SamplerConfiguration.fromEnv(),
 				com.uber.jaeger.Configuration.ReporterConfiguration.fromEnv()).getTracer();
 	}
