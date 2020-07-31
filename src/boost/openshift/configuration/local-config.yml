@@ -1,6 +1,4 @@
-config_map:     
-  - name: PRODUCT
-    value: "{{ product.name }}"    
+config_map:        
   - name: OPENSHIFT_HOST_PORT
     value: "{{ openshift_host_port }}"                        
   - name: JAEGER_SERVICE_NAME
